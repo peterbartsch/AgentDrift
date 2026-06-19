@@ -1,18 +1,22 @@
 # AgentDrift
 
-Reusable agent workflows written as portable Markdown, following the [agent-skills](https://github.com/addyosmani/agent-skills) anatomy (MIT). A skill is a workflow an agent *follows* — not a reference doc it reads.
+Agents that catch **drift** across a design system's surfaces — written as portable Markdown skills, following the [agent-skills](https://github.com/addyosmani/agent-skills) anatomy (MIT). A skill is a workflow an agent *follows*, not a reference doc it reads.
 
-These were extracted from real use building [Thios](https://thios.co), a product run on a five-surface design system where one designer reviews the work and agents do the implementation. The skills reference design-system concepts (a markdown spec, a `tokens.json`, running CSS, a live demo page), but the *shape* of each workflow generalizes to any vanilla-CSS design system.
+When one person sets the rules and agents do the implementation, the failure mode isn't bad code — it's **drift**: a hex value that diverges between the spec, the tokens file, the running CSS, and the live demo until dozens of components reference the wrong thing. AgentDrift is the tooling that catches it before it compounds.
 
-## Skills
+Extracted from real use building [Thios](https://thios.co), a product run on a five-surface design system where one designer reviews and agents implement. The skills reference design-system concepts (a markdown spec, a `tokens.json`, running CSS, a live demo page), but the *shape* of each workflow generalizes to any vanilla-CSS design system.
+
+## The skill
 
 | Skill | What it does |
 |---|---|
 | [`audit-design-token-drift`](skills/audit-design-token-drift/SKILL.md) | Diffs design tokens across four canonical surfaces (spec ↔ tokens.json ↔ CSS ↔ live demo) and produces a dated drift report with `file:line` citations and a recommended fix per finding. |
 
-See [`examples/DESIGN_TOKEN_AUDIT_2026-05.md`](examples/DESIGN_TOKEN_AUDIT_2026-05.md) for a real first-run output — it caught 7 drift findings, including a spec that contradicted itself on the canonical brand color and a documented color absent from the token file.
+See [`examples/DESIGN_TOKEN_AUDIT_2026-05.md`](examples/DESIGN_TOKEN_AUDIT_2026-05.md) for a real first run — it caught 7 drift findings, including a spec that contradicted itself on the canonical brand color and a documented color absent from the token file.
 
 ## Roadmap
+
+More surfaces, more drift caught — plus the sync skills that keep it from happening:
 
 | Skill | Purpose |
 |---|---|
