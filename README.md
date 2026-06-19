@@ -1,4 +1,4 @@
-# agent-skills
+# AgentDrift
 
 Reusable agent workflows written as portable Markdown, following the [agent-skills](https://github.com/addyosmani/agent-skills) anatomy (MIT). A skill is a workflow an agent *follows* — not a reference doc it reads.
 
